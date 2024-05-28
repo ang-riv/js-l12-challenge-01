@@ -13,33 +13,39 @@ const getImage = async function() {
     selectRandomImage(images);
 };
 
-getImage();
-
 const selectRandomImage = function(images){
     // creates a random number for the index in the array that is multiplied by the number of images then rounds down
     const randomIndex = Math.floor(Math.random() * images.length);
     //console.log(randomIndex);
 
     const randomImage = images[randomIndex];
-    //console.log(randomImage);
+    console.log(randomImage);
 
     // shows the image along with the author text
+    
     displayImage(randomImage);
+    
 };
 
 const displayImage = function(randomImage) {
     // select the author property from the randomImage object
     const author = randomImage.author;
+    //console.log(author);
+
     const imageAddress = randomImage.download_url;
+    //console.log(imageAddress);
 
     // now manipulating DOM elements
     authorSpan.innerText = author;
-    img.src = imageAddress;
+    img.setAttribute("src", imageAddress);
 
     // show the image container
-    imgDiv.classList.remove = "hide";
+    imgDiv.classList.remove("hide");
 };
 
+// click event
 button.addEventListener("click", function(){
-
+    // program won't retrieve the data until the button is pressed!
+    getImage();
 });
+
