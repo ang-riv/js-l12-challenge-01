@@ -22,4 +22,24 @@ const selectRandomImage = function(images){
 
     const randomImage = images[randomIndex];
     //console.log(randomImage);
-}
+
+    // shows the image along with the author text
+    displayImage(randomImage);
+};
+
+const displayImage = function(randomImage) {
+    // select the author property from the randomImage object
+    const author = randomImage.author;
+    const imageAddress = randomImage.download_url;
+
+    // now manipulating DOM elements
+    authorSpan.innerText = author;
+    img.src = imageAddress;
+
+    // show the image container
+    imgDiv.classList.remove = "hide";
+};
+
+button.addEventListener("click", function(){
+
+});
